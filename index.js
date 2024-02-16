@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const PORT = 8088;
-
+const dotenv = require('dotenv');
+dotenv.config();
 app.use(cors());
 
 app.use('/login', (req, res) => {
@@ -12,6 +12,6 @@ app.use('/login', (req, res) => {
 });
 
 app.listen(
-	PORT, 
-	() => console.log(`Express server is running at http://localhost:${PORT}/login`)
+	process.env.PORT, 
+	() => console.log(`Express server is running at http://localhost:${process.env.PORT}/login`)
 );
